@@ -17,3 +17,10 @@ while True:
     for srcport in range(st,en):
         IP1 = IP(src=src, dst=target)
         TCP1 = TCP(sport=srcport, dport=80)
+        pkt = IP1 / TCP1
+        send(pkt,inter= .0001)
+        print "packet sent ", i
+        loop_break = loop_break+1
+        i=i+1
+        if loop_break ==50 :
+            break
